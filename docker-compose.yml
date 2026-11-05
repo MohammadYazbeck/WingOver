@@ -1,0 +1,29 @@
+services:
+  wingover-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: wingover-web:latest
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+    networks:
+      - traefik
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik
+      - traefik.http.routers.wingover.rule=Host(`${WINGOVER_DOMAIN}`) || Host(`www.${WINGOVER_DOMAIN}`)
+      - traefik.http.routers.wingover.entrypoints=websecure
+      - traefik.http.routers.wingover.tls=true
+      - traefik.http.routers.wingover.tls.certresolver=le
+      - traefik.http.services.wingover.loadbalancer.server.port=3000
+      - traefik.http.routers.wingover-http.rule=Host(`${WINGOVER_DOMAIN}`) || Host(`www.${WINGOVER_DOMAIN}`)
+      - traefik.http.routers.wingover-http.entrypoints=web
+      - traefik.http.routers.wingover-http.middlewares=wingover-https-redirect
+      - traefik.http.middlewares.wingover-https-redirect.redirectscheme.scheme=https
+
+networks:
+  traefik:
+    external: true
