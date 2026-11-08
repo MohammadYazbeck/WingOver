@@ -1,6 +1,7 @@
 node_modules/
 .next/
 tmp/
+data/
 *.tsbuildinfo
 .DS_Store
 Thumbs.db

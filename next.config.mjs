@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+  ...(process.platform !== "win32" ? { output: "standalone" } : {}),
   images: {
     unoptimized: true
   }

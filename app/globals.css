@@ -244,6 +244,46 @@ h1 em, h2 em { color: var(--red); font-style: normal; }
 .menu-page-footer .page-shell { display: flex; justify-content: space-between; gap: 20px; }
 .menu-page-footer a { color: white; }
 
+/* Wing Run */
+.runner-launcher { position: fixed; z-index: 25; right: 24px; bottom: 24px; display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 16px 0 12px; border: 2px solid var(--ink); background: var(--red); color: white; box-shadow: 6px 6px 0 var(--ink); cursor: pointer; font-size: 10px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; transition: transform .2s ease, box-shadow .2s ease; }
+.runner-launcher:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--ink); }
+.runner-launcher .runner-wing-compact { width: 32px; height: 25px; filter: drop-shadow(0 2px 0 rgba(0,0,0,.28)); }
+.runner-launcher-arrow { font-size: 18px; line-height: 1; }
+.runner-overlay { position: fixed; z-index: 40; inset: 0; display: flex; flex-direction: column; overflow: hidden; background: #080808; color: var(--cream); }
+.runner-exit { position: absolute; z-index: 6; top: 20px; right: 25px; display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 15px; border: 2px solid rgba(245,240,231,.7); background: rgba(8,8,8,.72); color: var(--cream); cursor: pointer; font-size: 10px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+.runner-exit:hover { border-color: var(--red); background: var(--red); }
+.runner-exit-icon { color: var(--red); font-size: 20px; line-height: .7; }
+.runner-hud { position: relative; z-index: 2; display: flex; justify-content: space-between; width: min(1000px, calc(100% - 48px)); margin: 82px auto 12px; color: rgba(245,240,231,.7); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.runner-hud span:first-child { color: var(--cream); }
+.runner-stage { position: relative; flex: 1; width: min(1000px, calc(100% - 48px)); min-height: 270px; max-height: 520px; margin: auto; overflow: hidden; border: 2px solid rgba(245,240,231,.22); background-color: #171717; background-image: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.28) 100%), url("/images/game-bg.png"); background-position: center; background-size: cover; background-repeat: no-repeat; outline: none; touch-action: manipulation; }
+.runner-stage:focus-visible { border-color: var(--red); }
+.runner-track { position: absolute; right: 0; bottom: 0; left: 0; height: 54px; overflow: hidden; border-top: 3px solid #ff6b63; background-color: var(--red); background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.17) 0 2px, transparent 2px 13px), repeating-linear-gradient(78deg, transparent 0 48px, rgba(70,0,0,.24) 49px 51px, transparent 52px 96px); box-shadow: inset 0 10px 16px rgba(80,0,0,.48), 0 -5px 12px rgba(227,34,25,.35); }
+.runner-canvas { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.runner-player { position: absolute; z-index: 3; bottom: 55px; left: 7%; width: 76px; height: 58px; display: grid; place-items: center; will-change: transform; }
+.runner-wing { display: block; width: 76px; height: 58px; object-fit: cover; user-select: none; filter: drop-shadow(0 8px 5px rgba(0,0,0,.38)); animation: runner-wing-flap .48s ease-in-out infinite alternate; transform-origin: 48% 55%; }
+.runner-wing-compact { animation: none; }
+@keyframes runner-wing-flap { from { transform: rotate(-7deg) translateY(1px); } to { transform: rotate(5deg) translateY(-2px); } }
+.runner-game-over { position: absolute; z-index: 5; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow-y: auto; padding: 18px; background: rgba(8,8,8,.82); text-align: center; }
+.runner-game-over p { margin: 0 0 8px; color: var(--red); font-family: var(--display-font); font-size: clamp(24px, 4vw, 46px); text-transform: uppercase; }
+.runner-game-over > strong { font-family: var(--display-font); font-size: 32px; letter-spacing: .08em; }
+.runner-game-over button { min-height: 48px; margin-top: 22px; padding: 0 20px; border: 2px solid var(--cream); background: var(--red); color: white; box-shadow: 5px 5px 0 var(--ink); cursor: pointer; font-size: 10px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+.runner-game-over button span { margin-left: 14px; font-size: 15px; }
+.runner-reward-panel { display: flex; flex-direction: column; align-items: center; width: min(330px, 92%); margin-top: 14px; padding: 13px 16px; border: 1px solid rgba(245,240,231,.34); background: rgba(10,10,10,.72); }
+.runner-reward-kicker { color: rgba(245,240,231,.65); font-size: 8px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.runner-reward-panel > b { margin-top: 4px; color: var(--cream); font-family: var(--display-font); font-size: 21px; letter-spacing: .04em; text-transform: uppercase; }
+.runner-reward-panel small { display: block; margin-top: 4px; color: rgba(245,240,231,.72); font-size: 9px; letter-spacing: .04em; }
+.runner-reward-panel button { min-height: 40px; margin-top: 11px; padding: 0 15px; box-shadow: 3px 3px 0 var(--ink); }
+.runner-reward-panel button:disabled { cursor: wait; opacity: .65; }
+.runner-reward-error { margin-top: 9px; color: #ff8d86; font-size: 9px; line-height: 1.35; }
+.runner-reward-ticket { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 4px; }
+.runner-reward-ticket > span { color: var(--red); font-size: 9px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+.runner-reward-ticket > strong { margin-top: 4px; color: var(--cream); font-family: var(--display-font); font-size: 25px; letter-spacing: .12em; }
+.runner-prize-guide { display: flex; gap: 8px; margin-top: 12px; color: rgba(245,240,231,.7); font-size: 8px; letter-spacing: .06em; text-transform: uppercase; }
+.runner-prize-guide span { padding-right: 8px; border-right: 1px solid rgba(245,240,231,.25); }
+.runner-prize-guide span:last-child { padding-right: 0; border: 0; }
+.runner-prize-guide b { color: var(--cream); }
+.runner-game-over .runner-replay { margin-top: 14px; }
+
 @media (max-width: 800px) {
   .page-shell, .site-header { width: min(100% - 36px, 680px); }
   .announcement { padding: 0 18px; font-size: 8px; }
@@ -315,6 +355,20 @@ h1 em, h2 em { color: var(--red); font-style: normal; }
   .sauce-circle-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 14px; }
   .sauce-circle-label { font-size: 12px; }
   .menu-page-footer .page-shell { flex-wrap: wrap; }
+  .runner-launcher { right: 16px; bottom: 16px; min-height: 46px; padding-right: 13px; box-shadow: 4px 4px 0 var(--ink); }
+  .runner-launcher:hover { box-shadow: 5px 5px 0 var(--ink); }
+  .runner-exit { top: 12px; right: 12px; width: 46px; min-height: 46px; justify-content: center; padding: 0; border-color: var(--cream); background: var(--red); box-shadow: 4px 4px 0 var(--ink); }
+  .runner-exit-label { display: none; }
+  .runner-exit-icon { color: #fff; font-size: 26px; }
+  .runner-hud { position: absolute; z-index: 7; top: 25px; left: 50%; width: auto; margin: 0; transform: translateX(-50%); font-size: 11px; }
+  .runner-hud span:last-child { display: none; }
+  .runner-stage { width: 100%; min-height: 0; max-height: none; margin: 0; border-right: 0; border-bottom: 0; border-left: 0; }
+  .runner-track { height: 108px; }
+  .runner-player { bottom: 109px; left: 6%; width: 60px; height: 46px; }
+  .runner-player .runner-wing { width: 60px; height: 46px; }
+  .runner-game-over { justify-content: flex-start; padding-top: max(70px, 9vh); }
+  .runner-game-over button { min-width: 170px; min-height: 48px; font-size: 10px; }
+  .runner-reward-panel { width: min(310px, 94%); }
 }
 
 @media (max-width: 480px) {
@@ -322,3 +376,4 @@ h1 em, h2 em { color: var(--red); font-style: normal; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } .hero { background: var(--ink) url("/images/hero-sandwich.jpg") center 46% / cover no-repeat; } .hero-video { display: none !important; } .story-motion-gif { display: none !important; } .story-motion-still { display: block !important; } }
+@media (prefers-reduced-motion: reduce) { .runner-wing { animation: none; } }

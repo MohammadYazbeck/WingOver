@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { menuCategories, menuItems, sauceCircles, type MenuCategory } from "@/lib/menu-data";
+import RunnerGame from "./RunnerGame";
 
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState<MenuCategory>("Wings");
@@ -99,6 +100,7 @@ export default function MenuPage() {
       </section>
 
       <footer className="menu-page-footer"><div className="page-shell"><span>WingOver · Made for the craving</span><a href="/">Back to home ↑</a></div></footer>
+      <RunnerGame />
     </main>
   );
 }

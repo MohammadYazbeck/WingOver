@@ -27,9 +27,11 @@ pnpm check
 app/
   page.tsx          Landing page
   menu/page.tsx     Full menu page with category tabs
+  api/game/         Signed game sessions, claims, and redemption
   globals.css       Shared brand styles and responsive layout
 lib/
   menu-data.ts      Shared menu, sauce, and category content
+  game-rewards.ts   Shared prize thresholds
 public/
   images/           Food, sauce, and logo assets
   videos/           Reserved for hero and meal videos

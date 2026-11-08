@@ -9,6 +9,10 @@ services:
       NODE_ENV: production
       PORT: 3000
       HOSTNAME: 0.0.0.0
+      GAME_REWARD_SECRET: ${GAME_REWARD_SECRET}
+      GAME_REWARD_ADMIN_KEY: ${GAME_REWARD_ADMIN_KEY}
+    volumes:
+      - wingover_data:/app/data
     networks:
       - traefik
     labels:
@@ -27,3 +31,6 @@ services:
 networks:
   traefik:
     external: true
+
+volumes:
+  wingover_data:
