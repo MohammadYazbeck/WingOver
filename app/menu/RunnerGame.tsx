@@ -3,6 +3,7 @@
 import NextImage from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { nextRewardForScore, rewardForScore } from "@/lib/game-rewards";
+import { ArrowUpRight } from "@/app/components/ArrowIcons";
 
 type Obstacle = { id: number; x: number; width: number; height: number };
 type GameStatus = "playing" | "over";
@@ -289,7 +290,7 @@ export default function RunnerGame() {
       <button className="runner-launcher" type="button" onClick={openGame}>
         <WingIcon compact />
         <span>Wing run</span>
-        <span className="runner-launcher-arrow" aria-hidden="true">↗</span>
+        <ArrowUpRight className="runner-launcher-arrow" />
       </button>
 
       {open && (
@@ -344,7 +345,7 @@ export default function RunnerGame() {
                   <span>450 <b>Fries</b></span>
                   <span>700 <b>10% off</b></span>
                 </div>
-                <button className="runner-replay" type="button" onPointerDown={(event) => event.stopPropagation()} onClick={startRound}>Run it back <span aria-hidden="true">↗</span></button>
+                <button className="runner-replay" type="button" onPointerDown={(event) => event.stopPropagation()} onClick={startRound}>Run it back <ArrowUpRight /></button>
               </div>
             )}
           </div>

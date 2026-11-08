@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { menuCategories, menuItems, sauceCircles, type MenuCategory } from "@/lib/menu-data";
 import RunnerGame from "./RunnerGame";
+import { ArrowUpRight } from "@/app/components/ArrowIcons";
 
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState<MenuCategory>("Wings");
@@ -54,7 +55,7 @@ export default function MenuPage() {
               >
                 <span className="menu-tab-number">{category.number}</span>
                 <span>{category.label}</span>
-                <span className="menu-tab-arrow" aria-hidden="true">↗</span>
+                <ArrowUpRight className="menu-tab-arrow" />
               </button>
             ))}
           </div>

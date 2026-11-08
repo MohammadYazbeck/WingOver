@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { featuredItems, heatScaleLevels, homeCategories, sauceCards, type HomeCategory } from "@/lib/menu-data";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp, ArrowUpRight } from "@/app/components/ArrowIcons";
 
 const carouselSauces = [...sauceCards, ...sauceCards, ...sauceCards];
 
@@ -112,7 +113,7 @@ export default function Home() {
     <main>
       <div className="announcement">
         <span>Crispy wings. Stacked sandwiches.</span>
-        <a href="/menu">Explore the menu <span aria-hidden="true">↗</span></a>
+        <a href="/menu">Explore the menu <ArrowUpRight /></a>
       </div>
 
       <section className="hero" id="top">
@@ -130,7 +131,7 @@ export default function Home() {
             <a href="#sauces">Sauces</a>
             <a href="#come-through">Come through</a>
           </nav>
-          <a className="header-order" href="/menu">Order now <span aria-hidden="true">↗</span></a>
+          <a className="header-order" href="/menu">Order now <ArrowUpRight /></a>
         </header>
 
         <div className="hero-content page-shell">
@@ -138,8 +139,8 @@ export default function Home() {
             <h1>Crispy.<br /><em>Saucy.</em><br />WingOver.</h1>
             <p className="hero-description">Crispy wings, stacked sandwiches, and sauces with something to say.</p>
             <div className="hero-actions">
-              <a className="button button-primary" href="/menu">Start your order <span aria-hidden="true">↗</span></a>
-              <a className="button button-ghost" href="/menu">See the full menu <span aria-hidden="true">↓</span></a>
+              <a className="button button-primary" href="/menu">Start your order <ArrowUpRight /></a>
+              <a className="button button-ghost" href="/menu">See the full menu <ArrowDown /></a>
             </div>
           </div>
         </div>
@@ -172,7 +173,7 @@ export default function Home() {
             </a>
           ))}
         </div>
-        <a className="text-link" href="/menu">View all menu items <span aria-hidden="true">↗</span></a>
+        <a className="text-link" href="/menu">View all menu items <ArrowUpRight /></a>
       </section>
 
       <section className="heat-scale-section" aria-labelledby="heat-scale-heading">
@@ -242,8 +243,8 @@ export default function Home() {
         <div className="sauce-carousel-toolbar">
           <span className="sauce-carousel-status">{String(activeSauceIndex + 1).padStart(2, "0")} / {String(sauceCards.length).padStart(2, "0")} sauces</span>
           <div className="sauce-carousel-controls" aria-label="Sauce carousel controls">
-            <button className="sauce-carousel-control" type="button" aria-label="Previous sauce" onClick={() => scrollSauce(-1)}>←</button>
-            <button className="sauce-carousel-control" type="button" aria-label="Next sauce" onClick={() => scrollSauce(1)}>→</button>
+            <button className="sauce-carousel-control" type="button" aria-label="Previous sauce" onClick={() => scrollSauce(-1)}><ArrowLeft /></button>
+            <button className="sauce-carousel-control" type="button" aria-label="Next sauce" onClick={() => scrollSauce(1)}><ArrowRight /></button>
           </div>
         </div>
         <div className="sauce-carousel" ref={sauceTrackRef} aria-label="WingOver sauces">
@@ -257,7 +258,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <a className="text-link sauce-view-all" href="/menu">See all sauces <span aria-hidden="true">↗</span></a>
+        <a className="text-link sauce-view-all" href="/menu">See all sauces <ArrowUpRight /></a>
       </section>
 
       <section className="come-through-section" id="come-through" aria-labelledby="come-through-heading">
@@ -265,7 +266,7 @@ export default function Home() {
           <div className="come-through-copy">
             <p className="eyebrow"><span className="eyebrow-dot" /> COME THROUGH</p>
             <h2 id="come-through-heading">Come<br /><em>hungry.</em></h2>
-            <a className="come-through-link" href="/menu">Explore the menu <span aria-hidden="true">↗</span></a>
+            <a className="come-through-link" href="/menu">Explore the menu <ArrowUpRight /></a>
           </div>
           <div className="come-through-visual" aria-hidden="true">
             <Image src="/images/cutouts/wings-sauced.png" alt="" fill sizes="(max-width: 800px) 90vw, 48vw" />
@@ -275,10 +276,10 @@ export default function Home() {
 
       <footer className="site-footer">
         <div className="page-shell footer-top"><Image src="/images/wingover-logo.png" alt="WingOver" width={250} height={95} /><p>Built for<br />the craving.</p><div className="footer-links"><a href="/menu">Menu</a><a href="#story">Our story</a><a href="#sauces">Sauces</a><a href="#come-through">Come through</a></div></div>
-        <div className="page-shell footer-bottom"><span>© 2025 WingOver</span><span>Made for the craving <span className="footer-heart">♥</span></span><a href="#top">Back to top ↑</a></div>
+        <div className="page-shell footer-bottom"><span>© 2025 WingOver</span><span>Made for the craving <span className="footer-heart">♥</span></span><a href="#top">Back to top <ArrowUp /></a></div>
       </footer>
 
-      <a className="mobile-order" href="/menu">Start your order <span aria-hidden="true">↗</span></a>
+      <a className="mobile-order" href="/menu">Start your order <ArrowUpRight /></a>
     </main>
   );
 }
